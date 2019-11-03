@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class DuplicateCounter
+public class DuplicateCounter	
 {
    private Map<String, Integer> wordCounter;
   
@@ -16,7 +16,7 @@ public class DuplicateCounter
    }
   
    public void count(String filename){
-       //System.out.println("Trying to read input file " + filename);
+       //Read the input file
        Scanner infile = null;
        try {
            infile = new Scanner(new File(filename));
@@ -24,10 +24,10 @@ public class DuplicateCounter
            System.out.println(e.getMessage());
            return;
        }
-       infile.useDelimiter("([0-9]|[.,!?:;'\"-]|\\s)+"); //use the delimiting characters digits, spaces or punctuation marks to extract words
+       infile.useDelimiter("([0-9]|[.,!?:;'\"-]|\\s)+"); 	//Use characters digits, spaces or punctuation marks to extract words
        while(infile.hasNext()) {
            String word = infile.next().toLowerCase();
-           Integer count = wordCounter.get(word); //get the count from map
+           Integer count = wordCounter.get(word); 		//Get count from map
            if(count == null)
                count = 1;
            else
@@ -38,14 +38,14 @@ public class DuplicateCounter
    }
   
    public void write(String filename){
-       //System.out.println("Writing to file " + filename);
+       //Write to file
        try {
            PrintWriter outfile = new PrintWriter(new File(filename));
            for(String k : wordCounter.keySet()) {
                outfile.println(k + " " + wordCounter.get(k));
            }
            outfile.close();
-           //System.out.println("Please refresh project and check output file " + filename);
+           //Check output file
        } catch (FileNotFoundException e) {
            System.out.println(e.getMessage());
        }
