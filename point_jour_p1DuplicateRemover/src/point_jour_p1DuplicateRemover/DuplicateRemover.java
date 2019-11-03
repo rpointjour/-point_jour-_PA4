@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class DuplicateRemover {
    private Set<String> uniqueWords;
-   //This method will take the parameter dataFile and remove the duplicate words using a Set of Strings
+   //This method takes the file name as input, and removes the duplicate words using Set
    public void remove(String dataFile) throws FileNotFoundException
    {
        String word;
@@ -27,7 +27,7 @@ public class DuplicateRemover {
       
    }
   
-   //This method writes the contents from uniqueWords to outputFile
+   //This method writes contents of Set to output file
    public void Write(String outputFile) throws IOException
    {
 File f;
@@ -50,10 +50,10 @@ System.out.println("Data Written to File");
 }
 else
 {
-//If no file exists. Create new file
+//If no file exists. Then create new File
 f.createNewFile();
 fw=new FileWriter(f);
-Iterator<String> itr=uniqueWords.iterator();
+Iterator<String> itr= uniqueWords.iterator();
 
 while(itr.hasNext())
 {
